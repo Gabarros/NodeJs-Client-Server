@@ -33,7 +33,7 @@ class HttpRequest {
 
             ajax.open(method.toUpperCase(), url);
 
-            ajax.onerror = event =>{
+            ajax.onerror = event => {
 
                 reject(e);
 
@@ -56,7 +56,9 @@ class HttpRequest {
                 resolve(obj);
 
             };
-            ajax.send();
+
+            ajax.setRequestHeader('Content-Type', 'application/json');
+            ajax.send(JSON.stringify(params));
 
         });
 
